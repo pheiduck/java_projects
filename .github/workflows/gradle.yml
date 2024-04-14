@@ -13,11 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@main
-    - name: Set up JDK 14
+    - name: Set up JDK 21
       uses: actions/setup-java@main
       with:
         distribution: temurin
-        java-version: 14
+        java-version: 21
 
     - name: Build project with Maven
       run: |
