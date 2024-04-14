@@ -1,16 +1,12 @@
-name: Maven CI/CD
-
+name: Java CI/CD
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build_and_test:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@main
     - name: Set up JDK 21
@@ -18,8 +14,4 @@ jobs:
       with:
         distribution: temurin
         java-version: 21
-
-    - name: Build project with Maven
-      run: |
-        cd HelloWorld
-        mvn -B package --file pom.xml
+    - run: $(find . -type f -name '*.java') | java
